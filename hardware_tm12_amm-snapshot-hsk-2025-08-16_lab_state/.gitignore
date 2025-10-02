@@ -1,0 +1,36 @@
+src/tm12_amm/tm12_amm/data
+build
+install
+log
+# === Python / venv ===
+__pycache__/
+*.pyc
+.venv/
+env/
+*.egg-info/
+
+# === VSCode ===
+.vscode/
+
+# === ROS 2 / colcon ===
+build/
+install/
+log/
+
+# === Data & big files (依專案情況調整) ===
+*.bag
+*.zip
+*.tar.gz
+*.npz
+*.npy
+*.mp4
+*.mkv
+*.pcd
+*.ply
+
+# === Local config / secrets ===
+.env
+.env.*
+*.yaml.local
+config/local/
+secrets/

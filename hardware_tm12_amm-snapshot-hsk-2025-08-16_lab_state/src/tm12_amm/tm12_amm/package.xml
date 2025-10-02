@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>tm12_amm</name>
+  <version>0.0.0</version>
+  <description>TODO: Package description</description>
+  <maintainer email="94117313+TienYuWu@users.noreply.github.com">ros</maintainer>
+  <license>TODO: License declaration</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <buildtool_depend>ament_cmake_python</buildtool_depend>
+  <!--depend>opencv</depend-->
+
+  <depend>rclcpp</depend>
+  <depend>rclcpp_action</depend>
+  <depend>rclpy</depend>
+  <depend>std_msgs</depend>
+  <depend>sensor_msgs</depend>
+  <depend>control_msgs</depend>
+  <depend>action_msgs</depend>
+  <depend>std_srvs</depend>
+
+  <depend>cv_bridge</depend>
+
+  <!--build_depend>cuda</build_depend-->
+  <!--build_depend>tensorrt</build_depend-->
+
+  <depend>rqt_gui</depend>
+  <depend>rqt_gui_cpp</depend>
+  <depend>pluginlib</depend>
+  <depend>qt_gui_cpp</depend>
+
+  <depend>grpr2f85_ifaces</depend>
+  <depend>tm_msgs</depend>
+  <depend>realsense2_camera_msgs</depend>
+  <depend>tm12_amm_interfaces</depend>
+
+  <exec_depend>python3-yaml</exec_depend>
+
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

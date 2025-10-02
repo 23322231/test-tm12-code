@@ -1,0 +1,19 @@
+/**:
+  ros__parameters:
+    port: "/dev/ttyUSB1"
+    baud: 500000
+    scan_id: 7
+    inverted: true
+    frame_id: "s300_front"
+    scan_topic: "scan"
+    angle_start: -2.356194
+    angle_end: 2.356194
+    use_rep_117: false
+    scan_duration: 0.025
+    scan_cycle_time: 0.040
+    scan_delay: 0.075
+    debug: false
+    communication_timeout: 0.200
+    field.1.scale: 0.01
+    field.1.start_angle: -2.356194
+    field.1.stop_angle: 2.356194

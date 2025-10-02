@@ -1,0 +1,35 @@
+# TM12 AMM Calibration Node 配置參數
+# 此文件展示如何在 launch 文件中設置校正節點的參數
+
+# 校正節點參數
+calibration_node:
+  ros__parameters:
+    # 路徑配置
+    config_dir: "/home/robotics/hardware_tm12_amm/src/tm12_amm/tm12_amm/config"
+    default_config_file: "calibration_camera_eih_001.yaml"
+    results_dir: "/home/robotics/hardware_tm12_amm/src/tm12_amm/tm12_amm/data/calibration_results"
+
+    # 相機主題名稱
+    rgb_topic: "arm/camera/realsense_camera/color/image_raw"
+    depth_topic: "arm/camera/realsense_camera/aligned_depth_to_color/image_raw"
+    robot_feedback_topic: "arm/tm12/tm_driver/feedback_states"
+
+    # 服務名稱
+    tm12_set_positions_service: "arm/tm12/tm_driver/set_positions"
+    homing_service: "arm/homing"
+
+    # 超時和容差參數
+    move_timeout: 10.0
+    arrival_timeout: 30.0
+    position_tolerance: 0.01
+    service_timeout: 5.0
+    homing_timeout: 30.0
+    camera_stabilization_time: 2.0
+
+    # 機器人運動參數
+    robot_velocity: 1.0
+    robot_acc_time: 1.0
+    robot_blend_percentage: 0
+    robot_fine_goal: true
+
+

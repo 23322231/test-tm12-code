@@ -1,0 +1,34 @@
+<!-- robot.urdf.xacro -->
+<robot name="tm12_amm" xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <!-- AMR base -->
+  <link name="base"/>
+  <link name="velodyne"/>
+  <link name="amr_realsense"/>
+  <link name="tm12_base"/>
+
+  <joint name="velodyne_joint" type="fixed">
+    <parent link="base"/>
+    <child link="velodyne"/>
+    <origin xyz="0.4800 -0.2772 0.0000" rpy="0 0 0"/>
+  </joint>
+
+  <joint name="amr_realsense_joint" type="fixed">
+    <parent link="base"/>
+    <child link="amr_realsense"/>
+    <origin xyz="0.4800 -0.0905 0.0000" rpy="0 0 0"/>
+  </joint>
+
+  <!-- Arm base (mount on AMR) -->
+  <joint name="arm_base_joint" type="fixed">
+    <parent link="base"/>
+    <child link="tm12_base"/>
+    <origin xyz="-0.2817 0.0000 0.0000" rpy="0 0 0.7854"/>
+  </joint>
+
+  <!-- 引入 TM12 手臂 -->
+  <xacro:include filename="$(find tm_description)/xacro/macro.tm12s-nominal.urdf.xacro"/>
+  <xacro:tm12s parent="base" prefix="tm12_"/>
+
+</robot>
+

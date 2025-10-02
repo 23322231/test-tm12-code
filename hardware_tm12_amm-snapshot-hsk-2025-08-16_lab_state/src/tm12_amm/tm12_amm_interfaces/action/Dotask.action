@@ -1,0 +1,8 @@
+string task ''
+string scenario ''
+uint8 repeat_times 1
+---
+bool ok 0
+string result ''
+---
+string current_state ''

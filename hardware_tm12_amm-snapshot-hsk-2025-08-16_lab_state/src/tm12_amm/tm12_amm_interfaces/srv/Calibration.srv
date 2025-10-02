@@ -1,0 +1,4 @@
+string id_scenario '001'  #預設一個, yaml檔案, 其中包含以下三個
+---
+bool ok 0
+string result_path ''

@@ -1,0 +1,82 @@
+// See https://aka.ms/vscode-remote/devcontainer.json for format details.
+{
+	"name": "ncku_csie_rl_ai_robot",
+	"initializeCommand": "bash .devcontainer/initializecommand.bash",
+	//"image": "",
+
+	"build": {
+		"dockerfile": "Dockerfile"
+	},
+	//"remoteUser": "csie_ncku_rl",//tienyu
+	"runArgs": [
+		"--network=host",
+		"--cap-add=SYS_PTRACE",
+		"--security-opt=seccomp:unconfined",
+		"--security-opt=apparmor:unconfined",
+		"--env=DISPLAY=${localEnv:DISPLAY}",
+		"--env=QT_X11_NO_MITSHM=1",
+		"--volume=/tmp/.X11-unix:/tmp/.X11-unix:rw",
+		"--volume=/mnt/wslg:/mnt/wslg",
+		"--ipc=host",
+		"--pid=host",
+		"--gpus=all",
+		"--runtime=nvidia",
+		"--volume=/dev:/dev",
+		"--device=/dev/dri:/dev/dri",
+		"--device-cgroup-rule=c 188:* rmw",
+		"--device-cgroup-rule=c 81:* rmw",
+		"--device-cgroup-rule=c 189:* rmw"
+	],
+	"mounts": [
+		"type=bind,source=/dev,target=/dev/dev"
+	],
+	"containerEnv": {
+		"PYTHONPATH":"${localEnv:WORKSPACE/}",
+		"DISPLAY": "${localEnv:DISPLAY}", // Needed for GUI try ":0" for windows
+		"WAYLAND_DISPLAY": "${localEnv:WAYLAND_DISPLAY}",
+		"XDG_RUNTIME_DIR": "${localEnv:XDG_RUNTIME_DIR}",
+		"PULSE_SERVER": "${localEnv:PULSE_SERVER}",
+		"LIBGL_ALWAYS_INDIRECT": "0",  // 修改這行
+		"MESA_GL_VERSION_OVERRIDE": "3.3",  // 添加這行
+		"LIBGL_ALWAYS_SOFTWARE": "0", // Needed for software rendering of opengl
+		"QT_X11_NO_MITSHM": "1",
+		"QT_QPA_PLATFORM": "xcb",
+		"ACCEPT_EULA": "Y",
+		"NO_AT_BRIDGE": "1",
+		"PRIVACY_CONSENT": "Y"
+	},
+	// Set *default* container specific settings.json values on container create.
+	"remoteEnv": {
+		"PATH": "${containerEnv:PATH}:/usr/local/cuda/bin",
+		"LD_LIBRARY_PATH": "${containerEnv:LD_LIBRARY_PATH}:/usr/local/cuda/lib64:/usr/local/cuda/extras/CUPTI/lib64",
+		"CUDA_HOME": "/usr/local/cuda",
+		"NVIDIA_VISIBLE_DEVICES": "all"
+	},
+//	      "updateContentCommand": "bash .devcontainer/install-dev-tools.sh",
+//	      "postCreateCommand": "bash .devcontainer/initializecommand.bash",
+
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"yzhang.markdown-all-in-one",
+				"shd101wyy.markdown-preview-enhanced",
+				"ms-vscode.cpptools",
+				"ms-vscode.cpptools-extension-pack",
+				"MS-CEINTL.vscode-language-pack-zh-hant",
+				"twxs.cmake",
+				"ms-vscode.cmake-tools",
+				"bierner.markdown-mermaid",
+				"DavidAnson.vscode-markdownlint",
+				"ms-python.vscode-pylance",
+				"ms-python.python",
+				"ms-python.debugpy",
+				"ms-iot.vscode-ros",
+				"ms-vscode.cpptools-themes",
+				"JaehyunShim.vscode-ros2",
+				"althack.ament-task-provider",
+				"James-Yu.latex-workshop"
+			]
+		}
+
+	}
+}
